@@ -91,7 +91,10 @@ button{font:inherit;color:inherit}
 .card-frame canvas{width:100%;height:100%;display:block;transition:opacity .25s ease}
 .card-frame.swap canvas{opacity:0}
 .card figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;margin-top:10px;font-size:15px;color:var(--fg-muted)}
-.card .guess{color:var(--fg);font-weight:600}
+.card .guess{color:var(--fg);font-weight:600;transition:opacity .25s ease}
+.card .waiting .guess{opacity:0}
+.card figcaption{flex-direction:column;align-items:flex-start;gap:4px}
+.card figcaption>span{min-height:2.9em}
 .card .again{min-height:44px;display:inline-flex;align-items:center;background:none;border:0;padding:0;cursor:pointer;color:var(--fg-muted);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px;font-size:15px;white-space:nowrap}
 .card .again:hover{color:var(--fg)}
 @media (max-width:900px){
@@ -124,6 +127,8 @@ section{padding:clamp(80px,12vw,160px) 0}
 .thumb{position:relative;display:block;padding:0;border:0;background:none;cursor:pointer;border-radius:16px;overflow:hidden;aspect-ratio:9/16;width:100%}
 .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .thumb:hover img{transform:scale(1.04)}
+.thumb,.flyer button,.slides button,.watch,.card-frame{transition:transform .12s ease-out}
+.thumb:active,.flyer button:active,.slides button:active,.watch:active,.card-frame:active{transform:scale(.985)}
 .thumb .play{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.66);color:#fff;font-size:13px;font-weight:600;padding:6px 12px 6px 10px;border-radius:999px;display:flex;align-items:center;gap:6px}
 .thumb .play::before{content:"";width:0;height:0;border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent}
 .thumb .play.view::before{width:9px;height:9px;border:1.5px solid #fff;border-radius:2px}
@@ -159,6 +164,7 @@ section{padding:clamp(80px,12vw,160px) 0}
 .sep{display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--orange);margin:0 .5em;vertical-align:.12em}
 @keyframes tick{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 .ticker{will-change:transform}
+.dusk.off .ticker,:root.hidden-tab .ticker,:root.hidden-tab .grain{animation-play-state:paused}
 .dusk-static{display:none;margin:0;padding:16px clamp(20px,5vw,56px);font-weight:800;font-stretch:78%;font-size:clamp(30px,6vw,84px);letter-spacing:-.03em;line-height:1.05}
 @media (prefers-reduced-motion:reduce){.ticker{display:none}.dusk-static{display:block}}
 
@@ -261,6 +267,13 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--fg-muted);border-top:1px s
 dialog{border:0;padding:0;background:transparent;max-width:min(94vw,560px);width:100%;max-height:92vh;overflow:visible}
 dialog.wide{max-width:min(94vw,900px)}
 dialog::backdrop{background:rgba(0,0,0,.78)}
+dialog[open]{animation:lb-in .32s cubic-bezier(.16,1,.3,1)}
+dialog[open]::backdrop{animation:lb-fade .32s ease-out}
+dialog.closing{animation:lb-out .16s ease-in forwards}
+dialog.closing::backdrop{animation:lb-fade .16s ease-in reverse forwards}
+@keyframes lb-in{from{opacity:0;transform:translateY(10px) scale(.98)}}
+@keyframes lb-out{to{opacity:0;transform:translateY(6px) scale(.985)}}
+@keyframes lb-fade{from{opacity:0}}
 .lb-inner{background:var(--paper);color:var(--ink);border-radius:14px;max-height:88vh;overflow:auto;padding:14px}
 .lb-inner img{width:100%;border-radius:6px}
 .lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-size:14px}
@@ -302,7 +315,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
       </div>
       <figure class="card">
         <button class="card-frame" type="button" id="blot-btn" aria-label="Show another ink blot"><canvas id="blot" aria-hidden="true"></canvas></button>
-        <figcaption aria-live="polite"><span>What do you see? <span class="guess" id="guess"></span></span><button class="again" type="button" id="again">Another one</button></figcaption>
+        <figcaption aria-live="polite"><span>What do you see? <span class="guess" id="guess"></span></span><button class="again" type="button" id="again">Another blot</button></figcaption>
       </figure>
     </div>
   </div>
@@ -378,7 +391,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
             <a class="ig" href="https://www.instagram.com/p/DUD9bYfjXAU/" target="_blank" rel="noopener" aria-label="Open the Nuvola carousel on Instagram">Open on Instagram</a>
           </li>
       </ul>
-      <p class="data-note">Numbers are lifetime figures from Instagram Insights, exported on 5 November 2026.</p>
+      <p class="data-note">The totals at the top cover the 90 days; the numbers on each piece are lifetime figures. All from Instagram Insights, exported on 5 November 2026.</p>
     </div>
   </section>
 
@@ -438,11 +451,11 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
       <div class="flyers">
         <figure class="flyer" style="margin:0">
           <button type="button" data-img="images/flyer-2024-01-27.webp" data-alt="Sottosuono flyer, 27 January 2024, Loft Club, Jaybot, Div, Flaw, 23 to 05"><img src="images/flyer-2024-01-27.webp" width="1100" height="1122" alt="Sottosuono flyer in red and olive mirrored ink: 27.01.24, Jaybot, Div, Flaw, Loft Club, 23 to 05" loading="lazy"></button>
-          <figcaption><strong>27 January 2024</strong>, Loft Club, 23:00 to 05:00. Jaybot, Div, Flaw.</figcaption>
+          <figcaption><strong>27 January 2024</strong>, Loft Club, 23:00 to 05:00. Line-up: Jaybot, Div, Flaw.</figcaption>
         </figure>
         <figure class="flyer" style="margin:0">
           <button type="button" data-img="images/flyer-2026-08-07.webp" data-alt="Flyer, 7 August 2026, L.S.D, Jaybbot and System 42, 20:30 to 23:30"><img src="images/flyer-2026-08-07.webp" width="1100" height="1375" alt="Flyer in pink, green and yellow mirrored ink: 07/08/26, L.S.D, 20:30 to 23:30, Jaybbot, System 42" loading="lazy"></button>
-          <figcaption><strong>7 August 2026</strong>, L.S.D, 20:30 to 23:30. Jaybbot, System 42.</figcaption>
+          <figcaption><strong>7 August 2026</strong>, L.S.D, 20:30 to 23:30. Line-up: Jaybbot, System 42.</figcaption>
         </figure>
       </div>
 
@@ -484,7 +497,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 </main>
 
 <footer>
-  <div class="wrap">Jake Sartori, Amsterdam. Available from February 2027.</div>
+  <div class="wrap">Jake Sartori, Amsterdam</div>
 </footer>
 
 <dialog id="lb" aria-label="Viewer">
@@ -553,6 +566,11 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     new IntersectionObserver(function(en){if(en[0].isIntersecting)navLinks.forEach(function(a){a.removeAttribute('aria-current')})}).observe(document.querySelector('.hero'));
   }
 
+  /* ---------- pause loops offscreen or in a background tab ---------- */
+  var duskEl=document.querySelector('.dusk');
+  if(duskEl&&'IntersectionObserver' in window)new IntersectionObserver(function(en){duskEl.classList.toggle('off',!en[0].isIntersecting)}).observe(duskEl);
+  document.addEventListener('visibilitychange',function(){document.documentElement.classList.toggle('hidden-tab',document.hidden)});
+
   /* ---------- film grain tile ---------- */
   (function(){
     var g=document.querySelector('.grain');if(!g)return;
@@ -617,6 +635,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     /* faint fold down the middle, like a folded test card */
     var mid=Math.floor(N/2);
     for(var y=0;y<H;y++){for(var dx=-2;dx<=2;dx++){var q=y*N+mid+dx,f=dx<=0?.975:1.012;R[q]*=f;G[q]*=f;B[q]*=f}}
+    var PR=R.slice(),PG=G.slice(),PB=B.slice();
 
     var specs=[
       {c:cols[0],n:15,x0:.14,x1:.40,r:.11,sp:3,th:.42,den:.62},
@@ -658,17 +677,51 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     }
     bx.globalCompositeOperation='source-over';
     var i;do{i=Math.floor(Math.random()*guesses.length)}while(i===lastG);lastG=i;
-    gEl.textContent=guesses[i];
+    var guessText=guesses[i];
+    if(!animateInk){gEl.textContent=guessText;return}
+    spread(N,H,PR,PG,PB,guessText);
+  }
+
+  /* the focal moment: ink soaks outward from the fold, the way a real blot opens when the card is unfolded */
+  var spreadId=0;
+  function spread(N,H,PR,PG,PB,guessText){
+    var my=++spreadId,P=N*H,fin=bx.getImageData(0,0,N,H),fd=fin.data;
+    var frame=bx.createImageData(N,H),o=frame.data;
+    var nz=smoothNoise(N,H,Math.round(N/9)),mid=N/2,B=256,T=new Float32Array(P),cnt=new Uint32Array(B+1);
+    for(var p=0;p<P;p++){var x=p%N,v=Math.abs(x+.5-mid)/mid*.72+nz[p]*.28;T[p]=v;cnt[Math.min(B-1,v*B|0)+1]++;var k=p*4;o[k]=PR[p];o[k+1]=PG[p];o[k+2]=PB[p];o[k+3]=255}
+    /* bucket pixels by the moment the ink reaches them, so each frame only touches the wet edge */
+    for(var b=1;b<=B;b++)cnt[b]+=cnt[b-1];
+    var idx=new Uint32Array(P),fill=cnt.slice(0,B);
+    for(var p=0;p<P;p++)idx[fill[Math.min(B-1,T[p]*B|0)]++]=p;
+    gEl.textContent='';gEl.parentNode.classList.add('waiting');
+    bx.putImageData(frame,0,0);
+    var start=performance.now(),dur=1800,soft=.08,prev=-soft;
+    function step(now){
+      if(my!==spreadId)return;
+      var lin=Math.min(1,(now-start)/dur),pr=(1-Math.pow(1-lin,2))*(1+soft);
+      var b0=Math.max(0,Math.floor((prev-soft)*B)),b1=Math.min(B,Math.ceil(pr*B)+1);
+      for(var i=cnt[b0];i<cnt[b1];i++){
+        var p=idx[i],k=p*4,a=(pr-T[p])/soft;a=a<0?0:a>1?1:a;
+        o[k]=PR[p]+(fd[k]-PR[p])*a;o[k+1]=PG[p]+(fd[k+1]-PG[p])*a;o[k+2]=PB[p]+(fd[k+2]-PB[p])*a;
+      }
+      prev=pr;bx.putImageData(frame,0,0);
+      if(lin<1)requestAnimationFrame(step);
+      else{bx.putImageData(fin,0,0);gEl.textContent=guessText;gEl.parentNode.classList.remove('waiting')}
+    }
+    requestAnimationFrame(step);
   }
   var frame=document.getElementById('blot-btn');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,animateInk=!reduce;
   function another(){
-    if(reduce){draw();return}
-    frame.classList.add('swap');setTimeout(function(){draw();frame.classList.remove('swap')},250);
+    if(reduce){frame.classList.add('swap');setTimeout(function(){draw();frame.classList.remove('swap')},180);return}
+    draw();
   }
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   frame.addEventListener('click',another);
   document.getElementById('again').addEventListener('click',another);
-  draw();
+  if('IntersectionObserver' in window&&animateInk){
+    /* deal the first card when it is actually on screen */
+    var dealt=false;new IntersectionObserver(function(en,ob){if(en[0].isIntersecting&&!dealt){dealt=true;ob.disconnect();draw()}},{threshold:.5}).observe(cv);
+  }else draw();
   var rz,lastW=cv.clientWidth;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){if(cv.clientWidth!==lastW){lastW=cv.clientWidth;draw()}},200)});
 
   /* ---------- lightbox ---------- */
@@ -699,8 +752,14 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     var t=e.target.closest('[data-ig],[data-img]');if(!t)return;
     if(t.dataset.ig)openIg(t.dataset.ig);else openImg(t.dataset.img,t.dataset.alt);
   });
-  document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
-  lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+  function closeLb(){
+    if(!lb.open||lb.classList.contains('closing'))return;
+    if(reduce){lb.close();return}
+    lb.classList.add('closing');setTimeout(function(){lb.classList.remove('closing');lb.close()},160);
+  }
+  document.getElementById('lb-close').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  lb.addEventListener('cancel',function(e){e.preventDefault();closeLb()});
   lb.addEventListener('close',function(){body.innerHTML=''});
 })();
 </script>
