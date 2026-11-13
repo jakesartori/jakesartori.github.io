@@ -127,7 +127,11 @@ section{padding:clamp(80px,12vw,160px) 0}
 .ticker{display:flex;width:max-content;animation:tick 38s linear infinite}
 .ticker span{font-weight:800;font-stretch:78%;font-size:clamp(40px,6vw,84px);letter-spacing:-.03em;padding:14px 0;white-space:nowrap}
 .ticker span i{font-style:normal;color:var(--orange);padding:0 .4em}
-@keyframes tick{to{transform:translateX(-50%)}}
+@keyframes tick{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.ticker{will-change:transform}
+.dusk-static{display:none;margin:0;padding:16px clamp(20px,5vw,56px);font-weight:800;font-stretch:78%;font-size:clamp(30px,6vw,84px);letter-spacing:-.03em;line-height:1.05}
+.dusk-static i{font-style:normal;color:var(--orange);padding:0 .35em}
+@media (prefers-reduced-motion:reduce){.ticker{display:none}.dusk-static{display:block}}
 
 /* sottosuono */
 .sotto .sec-title{font-stretch:75%;letter-spacing:-.02em}
@@ -358,6 +362,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
   </section>
 
   <div class="dusk" aria-hidden="true">
+    <p class="dusk-static">Same person, different audience<i>●</i>After dark</p>
     <div class="ticker"><span>Same person, different audience<i>●</i>After dark<i>●</i>Same person, different audience<i>●</i>After dark<i>●</i></span><span>Same person, different audience<i>●</i>After dark<i>●</i>Same person, different audience<i>●</i>After dark<i>●</i></span></div>
   </div>
 
