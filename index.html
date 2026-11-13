@@ -4,7 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jake Sartori, portfolio</title>
-<meta name="description" content="Jake Sartori: content and social media for Arca di Noah and Sottosuono. Persuasive Communication master’s student in Amsterdam.">
+<meta name="description" content="Content that fits its audience: 1.1M organic Reel views for an animal shelter in Sicily, and the nights of Sottosuono, an electronic music collective. Persuasive Communication student in Amsterdam.">
+<link rel="canonical" href="https://jakesartori.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jakesartori.github.io/">
+<meta property="og:site_name" content="Jake Sartori">
+<meta property="og:title" content="Jake Sartori, portfolio">
+<meta property="og:description" content="Content that fits its audience: 1.1M organic Reel views for an animal shelter, and the nights of Sottosuono. Available from February 2027.">
+<meta property="og:image" content="https://jakesartori.github.io/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jake Sartori. Content, social media and marketing. A painted ink blot on a paper card.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F6F2EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C1A17" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23E5461C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,19 +132,23 @@ section{padding:clamp(80px,12vw,160px) 0}
 
 /* featured piece */
 .feature{display:grid;grid-template-columns:clamp(210px,24vw,300px) minmax(0,1fr);gap:clamp(24px,4.5vw,72px);align-items:end;margin-bottom:clamp(72px,9vw,120px)}
-.feature h3{margin:0 0 10px;font-size:clamp(30px,3.6vw,48px);line-height:1.04;letter-spacing:-.03em;font-weight:800;font-stretch:88%;text-wrap:balance;max-width:17ch}
-.feature .why{margin:0 0 18px;max-width:50ch;font-size:clamp(18px,1.4vw,20px);line-height:1.5}
-.feature-num{margin:0 0 4px;max-width:50ch;color:var(--fg-muted)}
-.feature-num b{color:var(--fg);font-weight:800;font-size:1.25em;letter-spacing:-.02em}
+.metric{margin:0;display:flex;align-items:baseline;gap:.25em;line-height:.9}
+.metric b{font-size:clamp(64px,7.5vw,6rem);font-weight:800;letter-spacing:-.04em;font-stretch:85%}
+.metric span{font-size:clamp(20px,1.8vw,26px);font-weight:600;letter-spacing:-.01em}
+.metric-sub{margin:12px 0 26px;color:var(--fg-muted);max-width:50ch}
+.feature h3{margin:0 0 6px;font-size:clamp(22px,2.2vw,30px);line-height:1.12;letter-spacing:-.02em;font-weight:700;text-wrap:balance;max-width:22ch}
+.feature .kind{margin-bottom:12px}
+.feature .why{margin:0 0 10px;max-width:50ch;font-size:clamp(17px,1.3vw,19px);line-height:1.5}
 
 /* the other four */
 .more-head{margin:0 0 22px;font-size:clamp(22px,2vw,28px);letter-spacing:-.02em;font-weight:700}
 .more{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,32px)}
 @media (max-width:900px){.more{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:44px}}
 .mini .thumb{margin-bottom:14px}
-.mini h4{margin:0 0 6px;font-size:18px;line-height:1.2;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
-.mini-num{margin:0 0 6px;font-size:15px;color:var(--fg-muted)}
-.mini-num b{color:var(--fg);font-weight:800}
+.mini h4{margin:0 0 6px;font-size:16px;line-height:1.2;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.mini-metric{margin:0;display:flex;align-items:baseline;gap:.3em;flex-wrap:wrap;font-weight:600;font-size:15px;line-height:1}
+.mini-metric b{font-size:clamp(34px,3.2vw,44px);font-weight:800;letter-spacing:-.035em;font-stretch:88%}
+.mini-sub{margin:6px 0 14px;font-size:14px;color:var(--fg-muted);line-height:1.35}
 .mini-why{margin:0;font-size:15px;line-height:1.45}
 .data-note{margin:36px 0 0;font-size:14px;color:var(--fg-muted);max-width:60ch}
 
@@ -249,6 +267,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 .lb-close{background:none;border:1px solid var(--line);border-radius:999px;padding:4px 14px;cursor:pointer}
 .lb-loading{margin:24px 4px;color:var(--muted);font-size:15px}
 .lb-inner:has(iframe) .lb-loading{display:none}
+.lb-failed{color:var(--ink)}
 .lb-fallback{font-size:14px;color:var(--muted);margin:10px 4px 2px}
 .instagram-media{margin:0 auto!important;min-width:0!important;width:100%!important}
 
@@ -292,13 +311,13 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="sec-title">Arca di Noah</h2>
-        <p class="sec-sub">An animal shelter in Sicily. I was its Marketing &amp; Communication Manager from August 2025 to February 2026, working remotely, and led the move from informative posts to video-first storytelling.</p>
+        <p class="sec-sub">An animal shelter in Sicily. As its Marketing &amp; Communication Manager (August 2025 to February 2026, remote), I moved the account from informative posts to video-first storytelling.</p>
       </div>
 
       <div class="arca-top">
         <div>
           <p class="result">In 90 days, with no paid ads, the account reached <b>545K</b> people and its Reels were watched <b>1.1M</b> times.</p>
-          <p class="support">53 Reels, 12K shares and 2.6K saves between 17 November 2025 and 15 February 2026. Followers grew by 600% to 1,400, and social media inquiries went from almost none to 10 qualified adoption applications in a single month.</p>
+          <p class="support">53 Reels between 17 November 2025 and 15 February 2026, with 12K shares and 2.6K saves. Followers grew 600% to 1,400, and inquiries went from almost none to 10 qualified adoption applications in one month.</p>
           <button class="proof" type="button" data-img="images/arca-insights.webp" data-alt="Instagram Insights for @rifugio_arca_di_noah, 17 November 2025 to 15 February 2026">
             <img src="images/arca-insights.webp" width="900" height="1126" alt="">
             <span>See the Instagram Insights</span>
@@ -307,50 +326,55 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
         <div class="note">
           <h3>Simple on purpose.</h3>
           <p>The audience was mostly Italian, with a lot of older followers and mums. They didn’t want fast cuts and effects. They wanted clear text on screen, a bit of humour and honest updates about the dogs.</p>
-          <p>So that’s what I made. These videos aren’t built to impress other editors; they’re built for the people who actually adopt.</p>
-          <p>Captions are in Italian, so each piece has a short English summary.</p>
+          <p>So that’s what I made: videos built for the people who adopt, not to impress other editors.</p>
+          <p>Captions are in Italian; each piece has an English summary.</p>
         </div>
       </div>
 
       <article class="feature">
-        <button class="thumb" type="button" data-ig="https://www.instagram.com/reel/DS73jjZCOdL/" aria-label="Play “Sofia was left one step from the finish line” here"><img src="images/arca-sofia.webp" width="720" height="1280" alt="Reel cover: a volunteer talking to camera, caption “Non avrei mai voluto”" loading="lazy" decoding="async"><span class="play">Play</span></button>
+        <button class="thumb" type="button" data-ig="https://www.instagram.com/reel/DTLUMiwDUcN/" aria-label="Play “I can’t adopt a dog, I don’t work from home” here"><img src="images/arca-cant-adopt.webp" width="720" height="1280" alt="Reel cover: a shelter path with the caption “Non posso adottare un cane, non lavoro da casa…”" loading="lazy" decoding="async"><span class="play">Play</span></button>
         <div>
-          <h3>“Sofia was left one step from the finish line”</h3>
-          <p class="kind">Reel, 31 December 2025, longer narrative</p>
-          <p class="why">Sofia’s adoption was cancelled the night before, when the family chose another dog at the last minute. No polish, just the truth told to the people who had followed her story.</p>
-          <p class="feature-num"><b>14.0 s</b> average watch time, the longest of these five pieces, with 76K views and 661 shares.</p>
-          <a class="ig" href="https://www.instagram.com/reel/DS73jjZCOdL/" target="_blank" rel="noopener" aria-label="Open “Sofia was left one step from the finish line” on Instagram">Open on Instagram</a>
+          <p class="metric"><b>666K</b> <span>views</span></p>
+          <p class="metric-sub">169K accounts reached, 768 shares, 11.1 s average watch time</p>
+          <h3>“I can’t adopt a dog, I don’t work from home…”</h3>
+          <p class="kind">Reel, 6 January 2026</p>
+          <p class="why">Starts from the excuse people give most often, in their own words, and answers it: you don’t need a perfect home, just the willingness to give a dog a chance.</p>
+          <a class="ig" href="https://www.instagram.com/reel/DTLUMiwDUcN/" target="_blank" rel="noopener" aria-label="Open “I can’t adopt a dog” on Instagram">Open on Instagram</a>
         </div>
       </article>
 
       <h3 class="more-head">Four more from the same 90 days</h3>
       <ul class="more" role="list">
           <li class="mini">
-            <button class="thumb" type="button" data-ig="https://www.instagram.com/reel/DTLUMiwDUcN/" aria-label="Play “I can’t adopt a dog” here"><img src="images/arca-cant-adopt.webp" width="720" height="1280" alt="Reel cover: a shelter path with the caption “Non posso adottare un cane, non lavoro da casa…”" loading="lazy" decoding="async"><span class="play">Play</span></button>
-            <h4>“I can’t adopt a dog, I don’t work from home…”</h4>
-            <p class="mini-num"><b>666K</b> views</p>
-            <p class="mini-why">Answers the excuse people give most, in their own words.</p>
-            <a class="ig" href="https://www.instagram.com/reel/DTLUMiwDUcN/" target="_blank" rel="noopener" aria-label="Open “I can’t adopt a dog” on Instagram">Open on Instagram</a>
-          </li>
-          <li class="mini">
             <button class="thumb" type="button" data-ig="https://www.instagram.com/reel/DTigRnJjZuT/" aria-label="Play “Do you have purebred dogs?” part 1 here"><img src="images/arca-purebred-1.webp" width="720" height="1280" alt="Reel cover: a dog in the shelter yard, “Quando ci chiedono se abbiamo cani di razza in adozione pt.1”" loading="lazy" decoding="async"><span class="play">Play</span></button>
+            <p class="mini-metric"><b>297K</b> views</p>
+            <p class="mini-sub">214K accounts reached, 3.6K shares</p>
             <h4>“Do you have purebred dogs?” Part&nbsp;1</h4>
-            <p class="mini-num"><b>297K</b> views, 3.6K shares</p>
             <p class="mini-why">Turns a question the shelter is tired of into a joke people sent to friends.</p>
             <a class="ig" href="https://www.instagram.com/reel/DTigRnJjZuT/" target="_blank" rel="noopener" aria-label="Open “Do you have purebred dogs?” part 1 on Instagram">Open on Instagram</a>
           </li>
           <li class="mini">
             <button class="thumb" type="button" data-ig="https://www.instagram.com/reel/DT3FTG9iBhS/" aria-label="Play “Do you have purebred dogs?” part 2 here"><img src="images/arca-purebred-2.webp" width="720" height="1280" alt="Reel cover: dogs in the shelter yard, “pt.2”" loading="lazy" decoding="async"><span class="play">Play</span></button>
+            <p class="mini-metric"><b>121K</b> views</p>
+            <p class="mini-sub">93K accounts reached, 1.5K shares</p>
             <h4>“Do you have purebred dogs?” Part&nbsp;2</h4>
-            <p class="mini-num"><b>121K</b> views</p>
             <p class="mini-why">Same joke, new punchline. A series gives followers a reason to come back.</p>
             <a class="ig" href="https://www.instagram.com/reel/DT3FTG9iBhS/" target="_blank" rel="noopener" aria-label="Open “Do you have purebred dogs?” part 2 on Instagram">Open on Instagram</a>
           </li>
           <li class="mini">
+            <button class="thumb" type="button" data-ig="https://www.instagram.com/reel/DS73jjZCOdL/" aria-label="Play “Sofia was left one step from the finish line” here"><img src="images/arca-sofia.webp" width="720" height="1280" alt="Reel cover: a volunteer talking to camera, caption “Non avrei mai voluto”" loading="lazy" decoding="async"><span class="play">Play</span></button>
+            <p class="mini-metric"><b>14.0&nbsp;s</b> average watch time</p>
+            <p class="mini-sub">The longest of the five, with 76K views and 661 shares</p>
+            <h4>“Sofia was left one step from the finish line”</h4>
+            <p class="mini-why">Her adoption was cancelled the night before. No polish, just the truth told to the people who had followed her story.</p>
+            <a class="ig" href="https://www.instagram.com/reel/DS73jjZCOdL/" target="_blank" rel="noopener" aria-label="Open “Sofia was left one step from the finish line” on Instagram">Open on Instagram</a>
+          </li>
+          <li class="mini">
             <button class="thumb" type="button" data-ig="https://www.instagram.com/p/DUD9bYfjXAU/" aria-label="View the Nuvola carousel here"><img src="images/arca-nuvola.webp" width="720" height="1280" alt="Carousel cover: a white puppy, “Adozione urgente: Nuvola”" loading="lazy" decoding="async"><span class="play view">View</span></button>
+            <p class="mini-metric"><b>45K</b> views</p>
+            <p class="mini-sub">25.9K accounts reached, 210 reposts</p>
             <h4>Urgent adoption: Nuvola</h4>
-            <p class="mini-num"><b>45K</b> views, 210 reposts</p>
-            <p class="mini-why">A carousel shared with four accounts to reach beyond the shelter’s followers.</p>
+            <p class="mini-why">A carousel shared with four accounts to reach past the shelter’s own followers.</p>
             <a class="ig" href="https://www.instagram.com/p/DUD9bYfjXAU/" target="_blank" rel="noopener" aria-label="Open the Nuvola carousel on Instagram">Open on Instagram</a>
           </li>
       </ul>
@@ -362,7 +386,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     <div class="wrap">
       <div class="ai-head">
         <h2 class="ai-title" id="ai-title">With AI</h2>
-        <p>Image tools help me test a direction before anyone spends time or money on it. I write the brief and direct the generations until the result fits the audience. Everything here uses AI-generated imagery.</p>
+        <p>Image tools let me test a direction before anyone spends time or money on it. I write the brief and direct the generations until the result fits the audience. Everything here uses AI-generated imagery.</p>
       </div>
       <div class="ai-grid">
         <div class="ai-item">
@@ -373,7 +397,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
             <button type="button" data-img="images/winter-4.webp" data-alt="Slide 4: You don’t have to be ‘depressed enough’."><img src="images/winter-4.webp" width="760" height="950" alt="Slide 4 of 7, red: “You don’t have to be ‘depressed enough’.” with a halftone mug" loading="lazy" decoding="async"></button>
           </div>
           <h3>Winter blues, for students</h3>
-          <p>An Instagram carousel from a health communication intervention at the University of Amsterdam, for students who feel low every winter but don’t think it’s serious enough to ask for help. It opens with a question, lets people recognise themselves, then removes the “depressed enough” barrier.</p>
+          <p>An Instagram carousel from a health communication intervention at the University of Amsterdam, for students who feel low every winter but don’t think it’s serious enough to ask for help. It opens with a question, lets students recognise themselves, then removes the “depressed enough” barrier.</p>
           <p class="small">Slides 1 to 4 of 7. The halftone illustrations are AI-generated.</p>
         </div>
         <div class="ai-item">
@@ -404,13 +428,13 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
       <div class="sotto-intro">
         <p class="big">Five nights so far, usually 60 to 100 people each. I curate the line-ups, play vinyl, and promote every event through Instagram, flyers, broadcasts and word of mouth.</p>
         <div>
-          <p>Here the audience wants the opposite of the shelter’s: texture, mood and a bit of mystery. The visual language is mirrored ink, like a Rorschach test, so every flyer asks the same question as the blot at the top of this page.</p>
+          <p>This audience wants the opposite of the shelter’s: texture, mood, a bit of mystery. So the flyers use mirrored ink, like a Rorschach test, and ask the same question as the card at the top of this page.</p>
           <p><a class="ig" href="https://www.instagram.com/sottosuono_/" target="_blank" rel="noopener">@sottosuono_ on Instagram</a></p>
         </div>
       </div>
 
       <h3 class="sub-h">Flyers I designed</h3>
-      <p class="sub-p">Open either one to see it full size.</p>
+      <p class="sub-p">Open either to see it full size.</p>
       <div class="flyers">
         <figure class="flyer" style="margin:0">
           <button type="button" data-img="images/flyer-2024-01-27.webp" data-alt="Sottosuono flyer, 27 January 2024, Loft Club, Jaybot, Div, Flaw, 23 to 05"><img src="images/flyer-2024-01-27.webp" width="1100" height="1122" alt="Sottosuono flyer in red and olive mirrored ink: 27.01.24, Jaybot, Div, Flaw, Loft Club, 23 to 05" loading="lazy"></button>
@@ -649,7 +673,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 
   /* ---------- lightbox ---------- */
   var lb=document.getElementById('lb'),body=document.getElementById('lb-body'),title=document.getElementById('lb-title');
-  var igLoaded=false;
+  var igLoaded=false,igToken=0;
   function openImg(src,alt){
     lb.classList.add('wide');title.textContent='';lb.setAttribute('aria-label',alt||'Image');
     body.innerHTML='';var im=new Image();im.src=src;im.alt=alt||'';body.appendChild(im);lb.showModal();
@@ -659,9 +683,16 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
     body.innerHTML='<p class="lb-loading">Loading the post…</p><blockquote class="instagram-media" data-instgrm-permalink="'+url+'?utm_source=ig_embed" data-instgrm-version="14"></blockquote>'+
       '<p class="lb-fallback">If the post doesn’t load, <a href="'+url+'" target="_blank" rel="noopener">open it on Instagram</a>.</p>';
     lb.showModal();
+    var token=++igToken;
+    function failed(){
+      if(token!==igToken||!lb.open||body.querySelector('iframe'))return;
+      body.innerHTML='<p class="lb-loading lb-failed">Instagram didn’t load the post here, which can happen with some privacy settings or a slow connection.</p><p class="lb-fallback"><a class="ig" href="'+url+'" target="_blank" rel="noopener">Open it on Instagram</a></p>';
+    }
+    setTimeout(failed,9000);
     if(igLoaded&&window.instgrm){window.instgrm.Embeds.process();return}
     var s=document.createElement('script');s.async=true;s.src='https://www.instagram.com/embed.js';
     s.onload=function(){igLoaded=true;if(window.instgrm)window.instgrm.Embeds.process()};
+    s.onerror=function(){s.remove();failed()};
     document.body.appendChild(s);
   }
   document.addEventListener('click',function(e){
